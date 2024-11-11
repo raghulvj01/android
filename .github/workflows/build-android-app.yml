@@ -22,11 +22,12 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
 
-      - name: Setup Node  
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'yarn'
+      - name: Disable Corepack (to prevent Yarn usage)
+        run: corepack disable
+      
+      - name: Install dependencies using npm
+        run: npm install
+      
 
       - name: Run npm Install
         run: |
