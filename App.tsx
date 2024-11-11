@@ -55,6 +55,12 @@ function Section({children, title}: SectionProps): React.JSX.Element {
   );
 }
 
+import { WebView } from 'react-native-webview';
+
+const App = () => (
+  <WebView source={{ uri: 'http://34.44.198.66:8080/' }} />
+);
+
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
